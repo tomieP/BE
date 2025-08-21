@@ -1,12 +1,8 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean,ForeignKey
-from .user_model import UserModel
+from sqlalchemy import Column, Integer, String
+from infrastructure.databases.database import db
 
-class SellerModel(UserModel):
+class SellerModel(db.Model):
     __tablename__ = 'seller'
-    __table_args__ = {'extend_existing': True}  # Thêm dòng này
 
-    id = Column(Integer, ForeignKey('flask_user.id'), primary_key=True)
-
-    __mapper_args__ = {
-    'polymorphic_identity': 'seller',
-}
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(100), nullable=False)

@@ -4,3 +4,4 @@ def init_db(app):
     init_mssql(app)
     
 from infrastructure.databases.mssql import Base
+from .mssql import init_mssql as init_db, db

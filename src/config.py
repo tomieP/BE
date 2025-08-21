@@ -1,8 +1,10 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Config:
-    MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
-    MONGO_URI_TEST = os.getenv("MONGO_URI_TEST", "mongodb://localhost:27017")
-    JWT_SECRET = os.getenv("JWT_SECRET", "mock_secret")  # Mock JWT secret for testing
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "mssql+pyodbc://sa:Aa123456@localhost:1433/watch_appraisal?driver=ODBC+Driver+17+for+SQL+Server")
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 config = Config()
