@@ -8,6 +8,7 @@ class UserModel(Base):
     id = Column(Integer, primary_key=True)
     user_name = Column(String(18), nullable=False)
     password = Column(String(18), nullable=False)
+    email = Column(String(50),nullable= False)
     description = Column(String(255), nullable=True)
     status = Column(Boolean, nullable=False)
     created_at = Column(DateTime)

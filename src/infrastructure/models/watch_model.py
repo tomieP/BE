@@ -9,6 +9,6 @@ class WatchModel(Base):
     sellerid = Column(Integer,ForeignKey('seller.id'))
     name = Column(String(18), nullable=False)
     brand = Column(String(18),nullable= False)
-    description = Column(String(255), nullable=True)
+    description = Column(String(500), nullable=True)
     status = Column(Boolean, nullable=False)
     year = Column(DateTime)
