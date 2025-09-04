@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer,ForeignKey, String, DateTime, Boolean
+from sqlalchemy import Column, Integer,ForeignKey, String, DateTime, Boolean, Float
 from infrastructure.databases.base import Base
 
 class ListingModel(Base):
@@ -11,5 +11,5 @@ class ListingModel(Base):
     buyerid = Column(Integer,ForeignKey('buyer.id'))
     appraisalid = Column(Integer,ForeignKey('appraisal.id'))
     created_at = Column(DateTime)
-    price = Column(float)
+    price = Column(Float)
     status = Column(Boolean,nullable=False)

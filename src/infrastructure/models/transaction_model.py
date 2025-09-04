@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer,ForeignKey, String, DateTime, Boolean
+from sqlalchemy import Column, Integer,ForeignKey, String, DateTime, Boolean, Float
 from infrastructure.databases.base import Base
 
 class TrasnactionModel(Base):
@@ -10,5 +10,5 @@ class TrasnactionModel(Base):
     sellerid = Column(Integer,ForeignKey('seller.id'))
     buyerid = Column(Integer,ForeignKey('buyer.id'))
     date = Column(DateTime)
-    price = Column(float)
+    price = Column(Float)
     status = Column(Boolean,nullable=False)
