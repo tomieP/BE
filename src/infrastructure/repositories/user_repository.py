@@ -1,5 +1,15 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean
-from infrastructure.databases.base import Base
+from domain.models.itodo_repository import ITodoRepository
+from domain.models.todo import Todo
+from typing import List, Optional
+from dotenv import load_dotenv
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+from config import Config
+from sqlalchemy import Column, Integer, String, DateTime,Boolean
+from infrastructure.databases import Base
+
+load_dotenv()
 
 class UserModel(Base):
     __tablename__ = 'flask_user'
@@ -8,17 +18,8 @@ class UserModel(Base):
     id = Column(Integer, primary_key=True)
     user_name = Column(String(18), nullable=False)
     password = Column(String(18), nullable=False)
-<<<<<<< HEAD
-=======
-    email = Column(String(50),nullable= False)
->>>>>>> d635e6eddb3c41f0ece5b0bc53cc03fd74c740bc
     description = Column(String(255), nullable=True)
     status = Column(Boolean, nullable=False)
     created_at = Column(DateTime)
     updated_at = Column(DateTime) 
-
-    type = Column(String(50))  # dùng để phân biệt subtype
-    __mapper_args__ ={
-        'polymorphic_identity': 'user',
-        'polymorphic_on': type
-    }
+    
